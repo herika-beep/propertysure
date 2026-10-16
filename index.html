@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#09090b">
+    <title>PropertySure — Property Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+<header class="topbar">
+    <a class="brand" href="#top" aria-label="PropertySure home"><span class="brand-mark">⌂</span><span>PROPERTY<span class="brand-accent">SURE</span></span></a>
+    <div class="nav-center"><span class="live-dot"></span> PROPERTY INTELLIGENCE <span class="nav-divider">/</span> DOCUMENT STUDIO</div>
+    <div id="userArea" class="user-area"></div>
+</header>
+
+<main class="shell" id="top">
+    <section id="authPanel" class="auth-layout">
+        <div class="auth-story">
+            <div class="pill"><span class="live-dot"></span> THE NEXT ERA OF PROPERTY CHECKS</div>
+            <h1>Trust the<br>details.<br><span class="gradient-text">Not the guesswork.</span></h1>
+            <p class="story-copy">A smarter space to inspect property documents, extract key facts, and spot signals that deserve a closer look.</p>
+            <div class="story-stats">
+                <div><strong>01</strong><span>UPLOAD</span></div><i></i><div><strong>02</strong><span>EXTRACT</span></div><i></i><div><strong>03</strong><span>REVIEW</span></div>
+            </div>
+            <div class="poster-card"><div class="poster-orbit orbit-a"></div><div class="poster-orbit orbit-b"></div><div class="poster-center">⌂</div><div class="poster-label label-top">PROPERTY DATA <b>●</b></div><div class="poster-label label-bottom">VERIFY WITH CLARITY <span>✦</span></div><div class="poster-chip chip-a">OCR / TEXT</div><div class="poster-chip chip-b">SHA-256</div></div>
+        </div>
+        <section class="auth-card glass-card">
+            <div class="card-kicker">YOUR PRIVATE WORKSPACE <span>↗</span></div>
+            <h2>Enter the studio.</h2>
+            <p class="muted">Sign in to continue your property document review.</p>
+            <div class="tabs"><button id="loginTab" class="tab active" type="button">Log in</button><button id="registerTab" class="tab" type="button">Create account</button></div>
+            <form id="authForm">
+                <label id="nameLabel" class="hidden">Full name<input id="fullName" placeholder="Your full name" autocomplete="name"></label>
+                <label>Email address<input id="email" type="email" required placeholder="you@example.com" autocomplete="email"></label>
+                <label>Password<input id="password" type="password" required minlength="8" placeholder="At least 8 characters" autocomplete="current-password"></label>
+                <button class="primary full" id="authSubmit" type="submit">Log in securely <span>↗</span></button>
+            </form>
+            <p id="authMessage" class="message" aria-live="polite"></p>
+            <div class="secure-note"><span>✦</span> YOUR DOCUMENTS. YOUR WORKSPACE. <span class="secure-right">SECURE SESSION</span></div>
+        </section>
+    </section>
+
+    <section id="appPanel" class="hidden">
+        <section class="hero-banner">
+            <div class="hero-glow"></div><div class="hero-content"><div class="pill"><span class="live-dot"></span> YOUR DOCUMENT STUDIO</div><p class="eyebrow">PROPERTY INTELLIGENCE / DASHBOARD</p><h1>Good to see you,<br><span id="welcomeName" class="gradient-text"></span><span class="hero-period">.</span></h1><p class="story-copy">Your property documents, organized. Your next review, one upload away.</p><a class="hero-cta" href="#uploadCard">Start a review <span>↓</span></a></div>
+            <div class="hero-art" aria-hidden="true"><div class="art-ring ring-one"></div><div class="art-ring ring-two"></div><div class="art-house">⌂</div><div class="art-tag">DOCUMENT<br><b>INTELLIGENCE</b></div><div class="art-spark">✦</div></div>
+            <div class="hero-index">PS / 001 <span>•</span> EST. FOR CLARITY</div>
+        </section>
+
+        <div class="section-heading"><div><p class="eyebrow">AT A GLANCE</p><h2>Your overview<span class="hero-period">.</span></h2></div><span class="section-meta">LIVE WORKSPACE <span class="live-dot"></span></span></div>
+        <div class="stats">
+            <div class="stat stat-feature"><span class="stat-icon">▤</span><span class="stat-label">DOCUMENTS IN LIBRARY</span><strong id="docCount">0</strong><span class="stat-foot">Saved to your workspace <b>↗</b></span></div>
+            <div class="stat"><span class="stat-icon violet">◉</span><span class="stat-label">LATEST REVIEW</span><strong id="latestStatus" class="latest-status">—</strong><span class="stat-foot">Most recent screening result</span></div>
+            <div class="stat stat-note"><span class="stat-icon green">✦</span><span class="stat-label">BUILT FOR CLARITY</span><strong>Extract.<br>Inspect.</strong><span class="stat-foot">Human review still matters.</span></div>
+        </div>
+
+        <div class="section-heading workspace-heading"><div><p class="eyebrow">YOUR TOOLS</p><h2>The document room<span class="hero-period">.</span></h2></div><span class="section-meta">01 — UPLOAD & LIBRARY</span></div>
+        <div class="workspace">
+            <section class="panel upload-panel" id="uploadCard"><div class="panel-top"><span class="panel-number">01</span><span class="panel-type">DOCUMENT INTAKE</span><span class="panel-spark">✳</span></div><h2>Drop in the details.</h2><p class="muted">Upload a property document and let the system extract readable information for review.</p>
+                <form id="uploadForm"><label class="dropzone" for="fileInput"><span class="upload-symbol">↑</span><strong id="fileLabel">Choose your document</strong><span>PDF, JPG, PNG or TIFF</span><span class="browse-label">BROWSE FILES <b>↗</b></span><input id="fileInput" type="file" accept=".pdf,.jpg,.jpeg,.png,.tif,.tiff" required></label><button class="primary full" id="uploadButton" type="submit">Analyze document <span>↗</span></button></form>
+                <p id="uploadMessage" class="message" aria-live="polite"></p><div class="notice"><span>ⓘ</span><p><b>Preliminary screening only.</b> This workspace does not verify against government land records or certify legal ownership.</p></div>
+            </section>
+            <section class="panel library-panel"><div class="panel-top"><span class="panel-number">02</span><span class="panel-type">YOUR ARCHIVE</span><span class="panel-spark">✳</span></div><h2>Recently reviewed.</h2><p class="muted">Select a saved record to reopen its report.</p><div class="search"><span>⌕</span><input id="searchInput" placeholder="Search your documents" aria-label="Search file name"><button id="searchButton" type="button">Search <span>↗</span></button></div><div id="recordsList" class="records-list"></div><div class="library-foot"><span class="live-dot"></span> PRIVATE DOCUMENT LIBRARY <span>↗</span></div></section>
+        </div>
+
+        <section id="resultPanel" class="panel result-panel hidden"><div class="panel-top"><span class="panel-number">03</span><span class="panel-type">DOCUMENT INTELLIGENCE REPORT</span><span class="panel-spark">✳</span></div><p class="eyebrow">ANALYSIS REPORT</p><h2 id="resultName"></h2><p id="resultStatus" class="status">—</p><div class="result-divider"></div><h3>Extracted details</h3><dl class="extracted-fields"><dt>Owner name</dt><dd id="fieldOwner">—</dd><dt>Property ID</dt><dd id="fieldPropertyId">—</dd><dt>Registration number</dt><dd id="fieldRegistration">—</dd><dt>Property address</dt><dd id="fieldAddress">—</dd></dl><div class="result-divider"></div><h3>Initial findings</h3><ul id="findingsList"></ul><h3>File fingerprint <span class="subheading">/ SHA-256</span></h3><code id="hashValue"></code><h3>Extracted text</h3><pre id="extractedText"></pre></section>
+    </section>
+</main>
+<footer><span class="footer-brand">⌂ PROPERTYSURE</span><span>PRELIMINARY REVIEW, NOT LEGAL CERTIFICATION</span><span>BUILT FOR CLARITY <b>✦</b></span></footer>
+<script src="app.js"></script>
+</body>
+</html>
