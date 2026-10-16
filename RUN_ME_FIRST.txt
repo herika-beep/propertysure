@@ -1,0 +1,38 @@
+PropertySure / Property Document Verification System
+
+WHAT WAS FIXED
+- Integrated the existing frontend into Spring Boot's static folder, so the UI and /api endpoints share the same origin.
+- Fixed registration success feedback so it remains visible after the form switches back to Log in.
+- Changed the database password property to read DB_PASSWORD from the environment (blank by default).
+
+REQUIREMENTS
+- JDK 17 or newer
+- MySQL Server running locally
+- Internet access the first time Maven downloads dependencies (unless already cached)
+
+SET UP MYSQL
+1. Start MySQL Server.
+2. Open src/main/resources/application.properties.
+3. If your MySQL root account has a password, set it using one of these options:
+   - Recommended: set the Windows environment variable DB_PASSWORD to your MySQL password, then reopen the terminal; OR
+   - Replace spring.datasource.password=${DB_PASSWORD:} with spring.datasource.password=YOUR_ACTUAL_PASSWORD.
+4. The app is configured for database property_auth on localhost:3306. It asks MySQL to create the database if it does not exist.
+   The MySQL user must have permission to create/use that database.
+
+RUN ON WINDOWS
+1. Open this propertyauth folder in VS Code.
+2. Open Terminal > New Terminal.
+3. Run:
+   .\mvnw.cmd spring-boot:run
+4. Wait until the terminal says Spring Boot has started.
+5. Open http://localhost:8080 in your browser.
+
+IF IT FAILS
+- Access denied for user 'root': configure DB_PASSWORD / application.properties.
+- Communications link failure / connection refused: start MySQL Server and verify port 3306.
+- Maven download error: check internet access, then rerun .\mvnw.cmd spring-boot:run.
+- OCR/Tesseract error for image or scanned PDF: install Tesseract OCR and configure TESSDATA_PREFIX to the directory containing tessdata files. Text-based PDFs may work without OCR.
+
+NOTES
+- The app performs preliminary text-based checks only. It does not query government property records and cannot certify authenticity.
+- Do not commit or share real database passwords.
